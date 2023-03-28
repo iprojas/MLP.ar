@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="mobiledetect.min.js" async></script>
+  <script type="text/javascript">
+  const setup = (function () {
+    // console.log('setup');
+    document.getElementById('sendMessage').onsubmit = function (e) {
+      e.preventDefault();
+      console.log('click');
+      const country = '55';
+      const number = (document.getElementById('number').value || '')
+        .replace(/\D/g, '')
+        .replace(new RegExp(`^${country}`), '');
+      const text = document.getElementById('text').value;
+      if (!number) {
+        alert('Invalid number');
+        return;
+      }
+      // const link = `https://wa.me/${country}${number}?text=${text}`;
+      link = `https://web.whatsapp.com/send?phone=${country}${number}&text=${text}`;
+      if ((new MobileDetect(window.navigator.userAgent)).mobile()) {
+        link = `https://api.whatsapp.com/send?phone=${country}${number}&text=${text}`;
+      }
+      console.log(number, link);
+      window.open(link);
+    };
+  })
+  if (window.attachEvent) {
+    window.attachEvent('onload', setup);
+  } else {
+    window.addEventListener('load', setup, false);
+  }
+  </script>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron align-middle">
+    <form method="POST" id="sendMessage">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+            <span class="flag-icon flag-icon-br"></span>
+          </span>
+        </div>
+        <input type="text" id="number" min="0" class="form-control" placeholder="Numero com DDD (apenas números)" aria-label="Shop" aria-describedby="basic-addon1" autocomplete="off">
+        <input type="mensagem" id="text" class="form-control" placeholder="(Opcional) Mensagem" aria-label="Shop" aria-describedby="basic-addon1" autocomplete="off">
+      </div>
+      <button id="send" class="btn btn-primary btn-lg btn-block">Abrir WhatsApp</button>
+    </form>
+  </div>
+ 
+</div>
+</body>
+</html>

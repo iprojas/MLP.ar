@@ -1,0 +1,124 @@
+
+  <svg
+    width="100%"
+    height="100%"
+    viewBox="0 0 1000 1000"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+  <defs>
+      
+    <filter id='doodle'>
+      <feTurbulence 
+        result="TURBULENCE" 
+        baseFrequency="0.08312769811225358" 
+        numOctaves="1" 
+        seed="1" 
+      />
+      <feDisplacementMap in="SourceGraphic" in2="TURBULENCE" scale="20" />
+    </filter>
+
+    <filter id="offset-1">
+      <feOffset dx="30" dy="0" result="OFFSET-1"/>
+    </filter>
+
+    <filter id="offset-2">
+      <feOffset dx="20" dy="0" result="OFFSET-2"/>
+    </filter>
+
+    <filter id="offset-3">
+      <feOffset dx="0" dy="50" result="OFFSET-3"/>
+    </filter>
+
+    <mask id="brush-mask">
+      <rect x="0" y="0" width="1000" height="1000" fill="white" filterUnits="userSpaceOnUse"/>
+      
+  <circle 
+    cx='262' 
+    cy='201' 
+    r='5px' 
+    fill='black'  
+    filter='url(#doodle)'
+  />
+  <circle 
+    cx='307' 
+    cy='770' 
+    r='6px' 
+    fill='black'  
+    filter='url(#doodle)'
+  />
+  <circle 
+    cx='412' 
+    cy='206' 
+    r='5px' 
+    fill='black'  
+    filter='url(#doodle)'
+  />
+  <circle 
+    cx='483' 
+    cy='703' 
+    r='13px' 
+    fill='black'  
+    filter='url(#doodle)'
+  />
+  
+      
+    <g filter="url(#offset-1)" mask="url(#brush-mask)">
+      <path
+        fill="none"
+        stroke-width="8px"
+        stroke="black"
+        d="M857.5 706 Q 734.705662519295 912.6370324570954 494.5 921.5"
+        filter="url(#doodle)"    
+      />
+    </g>
+    <g filter="url(#offset-2)" mask="url(#brush-mask)"  transform="scale(0.6)" transform-origin="center">
+      <path
+        fill="none"
+        stroke-width="7px"
+        stroke="black"
+        d="M857.5 706 Q 711.7338815334839 873.9421067130146 494.5 921.5"
+        filter="url(#doodle)"
+      />
+    </g>
+
+
+    <g filter="url(#offset-3)">
+      <path
+        fill="none"
+        stroke-width="6px"
+        stroke="black"
+        d="M126 715.5 Q 58.26498907063187 505.7809181442986 134.5 299"
+        filter="url(#doodle)"
+      />
+    </g>
+
+
+    <g filter="url(#offset-3)">
+      <path
+        fill="none"
+        stroke-width="7px"
+        stroke="black"
+        d="M503.5 91.5 Q 738.9510523660767 89.35187530460584 858 292.5"
+        filter="url(#doodle)"
+      />
+    </g>
+
+
+    </mask>
+
+      
+      
+      <clipPath id="shape">
+        <path fill="currentColor" d="M857.5,706Q738,912,494.5,921.5Q251,931,126,715.5Q1,500,134.5,299Q268,98,503.5,91.5Q739,85,858,292.5Q977,500,857.5,706Z"></path>
+      </clipPath> 
+    </defs>
+  
+    <g  mask="url(#brush-mask)">
+      <path
+        filter='url(#doodle)'
+        fill="#62648a"
+        d="M857.5,706Q738,912,494.5,921.5Q251,931,126,715.5Q1,500,134.5,299Q268,98,503.5,91.5Q739,85,858,292.5Q977,500,857.5,706Z"  
+      />
+    </g>
+  
+  </svg>
